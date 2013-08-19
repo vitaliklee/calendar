@@ -7,3 +7,8 @@
 
    calendar/app/  manage.py syncdb
    calendar/app/  manage.py runserver
+
+
+3)localhost:8000/admin   username: admin
+                         password: admin
+

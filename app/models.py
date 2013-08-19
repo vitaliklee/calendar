@@ -15,7 +15,3 @@ class Lesson(models.Model):
     teacher = models.CharField(max_length=100, blank=True)
     group = models.ForeignKey(Group)
 
-    def getDate(self):
-         return datetime.fromtimestamp(self.date)
-
-

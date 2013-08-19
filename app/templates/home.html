@@ -9,28 +9,40 @@
 <body>
 <div class="container">
     <h1>SCHEDULE</h1>
-{% if lessons %}
-<table class="table">
-<tr> <td>Lesson</td><td>Teacher</td><td>Group</td><td>Date</td></tr>
-   {% for lesson in lessons %}
-      <tr> <td>{{ lesson.0.title }}</td><td>{{ lesson.0.teacher }}</td>
-          <td>{{ lesson.0.group }}
-             <div class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Students <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                {% for student in lesson.1 %}
+    {% if lessons %}
+        <table class="table">
+            <tr>
+                <td>Lesson</td>
+                <td>Teacher</td>
+                <td>Group</td>
+                <td>Date</td>
+            </tr>
 
-                  <li>{{ student.fullname }}</li>
-                {% endfor %}
-              </ul>
-            </div>
-          </td>
-          <td>{{ lesson.0.date }}</td>
+            {% for lesson in lessons %}
 
-        </tr>
-   {% endfor %}
-    </table>
-{% endif %}
+            <tr>
+                <td>{{ lesson.0.title }}</td>
+                <td>{{ lesson.0.teacher }}</td>
+                <td>{{ lesson.0.group }}
+                    <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Students <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                    {% for student in lesson.1 %}
+                        <li>{{ student.fullname }}</li>
+                    {% endfor %}
+                    </ul>
+                    </div>
+                </td>
+                <td>{{ lesson.0.date }}</td>
+            </tr>
+
+            {% endfor %}
+        </table>
+    {% else %}
+        <h3>No lessons on this week!</h3>
+    {% endif %}
 
  </div>
 

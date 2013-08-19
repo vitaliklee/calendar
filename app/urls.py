@@ -12,7 +12,6 @@ urlpatterns = patterns('',
 
 )
 
-
 urlpatterns += staticfiles_urlpatterns()
 
 if settings.DEBUG:
